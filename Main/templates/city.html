@@ -1,0 +1,24 @@
+<!-- templates/city_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search City Image</title>
+</head>
+<body>
+    <h1>Enter a City to Get an Image</h1>
+    
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label for="city">City Name:</label>
+        <input type="text" id="city" name="city" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if image_url %}
+        <h2>Image for {{ city }}:</h2>
+        <img src="{{ image_url }}" alt="Image of {{ city }}" style="max-width: 100%; height: auto;">
+    {% endif %}
+</body>
+</html>
